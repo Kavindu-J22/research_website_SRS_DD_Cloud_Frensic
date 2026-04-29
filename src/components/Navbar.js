@@ -11,6 +11,8 @@ export default function Navbar() {
     { name: "Data", href: "/data-analysis" },
     { name: "Results", href: "/results" },
     { name: "Conclusion", href: "/conclusion" },
+    { name: "About", href: "/about-us" },
+    { name: "Contact", href: "/contacts" },
   ];
 
   return (
