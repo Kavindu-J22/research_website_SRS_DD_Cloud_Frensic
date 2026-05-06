@@ -38,25 +38,19 @@ export default function Contacts() {
                 </div>
 
                 <div style={{ marginTop: '1rem' }}>
-                  <div style={{ 
-                    width: '100%', 
-                    height: '200px', 
-                    background: 'var(--bg-surface)', 
-                    borderRadius: '16px', 
-                    border: '1px solid var(--glass-border)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'var(--text-muted)',
-                    fontSize: '0.9rem',
-                    textAlign: 'center',
-                    padding: '1rem'
-                  }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
-                      <span style={{ fontSize: '2rem' }}>📍</span>
-                      SLIIT Malabe Campus - Lab 402<br/>Cloud Forensics Research Center
-                    </div>
-                  </div>
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.798511776363!2d79.9703642758836!3d6.914677493084725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae256db1a677115%3A0x2c63e344274348ef!2sSLIIT%20Malabe%20Campus!5e0!3m2!1sen!2slk!4v1714961000000!5m2!1sen!2slk" 
+                    width="100%" 
+                    height="250" 
+                    style={{ 
+                      border: '1px solid var(--glass-border)', 
+                      borderRadius: '16px',
+                      filter: 'invert(90%) hue-rotate(180deg) brightness(0.8) contrast(1.2)' 
+                    }} 
+                    allowFullScreen="" 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
                 </div>
               </div>
             </div>
