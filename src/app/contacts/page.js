@@ -1,6 +1,42 @@
 'use client';
 
+import { useState } from 'react';
+
 export default function Contacts() {
+  const [result, setResult] = useState("");
+  const [status, setStatus] = useState("idle"); // idle, loading, success, error
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setStatus("loading");
+    setResult("Sending...");
+    
+    const formData = new FormData(event.target);
+    formData.append("access_key", "a64f0710-eb9e-401f-bfcb-25e466440edc");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        setResult("Message sent successfully!");
+        event.target.reset();
+      } else {
+        console.log("Error", data);
+        setStatus("error");
+        setResult(data.message);
+      }
+    } catch (error) {
+      console.log("Fetch Error", error);
+      setStatus("error");
+      setResult("Something went wrong. Please try again.");
+    }
+  };
   return (
     <main style={{ paddingTop: '100px' }}>
       <section className="section">
@@ -58,11 +94,13 @@ export default function Contacts() {
             {/* Contact Form */}
             <div className="glass-card" style={{ padding: '3rem' }}>
               <h2 style={{ fontSize: '2rem', marginBottom: '2.5rem' }}>Send a Message</h2>
-              <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Full Name</label>
                   <input 
                     type="text" 
+                    name="name"
+                    required
                     placeholder="Enter your name"
                     style={{ 
                       background: 'rgba(255, 255, 255, 0.05)', 
@@ -82,6 +120,8 @@ export default function Contacts() {
                   <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Email Address</label>
                   <input 
                     type="email" 
+                    name="email"
+                    required
                     placeholder="Enter your email"
                     style={{ 
                       background: 'rgba(255, 255, 255, 0.05)', 
@@ -100,6 +140,8 @@ export default function Contacts() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <label style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Message</label>
                   <textarea 
+                    name="message"
+                    required
                     rows="5" 
                     placeholder="How can we help you?"
                     style={{ 
@@ -119,12 +161,34 @@ export default function Contacts() {
 
                 <button 
                   type="submit" 
+                  disabled={status === "loading"}
                   className="btn-primary" 
-                  style={{ width: '100%', justifyContent: 'center', marginTop: '1rem', border: 'none', cursor: 'pointer' }}
-                  onClick={(e) => e.preventDefault()}
+                  style={{ 
+                    width: '100%', 
+                    justifyContent: 'center', 
+                    marginTop: '1rem', 
+                    border: 'none', 
+                    cursor: status === "loading" ? 'not-allowed' : 'pointer',
+                    opacity: status === "loading" ? 0.7 : 1
+                  }}
                 >
-                  Send Message
+                  {status === "loading" ? "Sending..." : "Send Message"}
                 </button>
+
+                {result && (
+                  <div style={{ 
+                    marginTop: '1rem', 
+                    padding: '1rem', 
+                    borderRadius: '12px', 
+                    textAlign: 'center',
+                    fontSize: '0.9rem',
+                    background: status === "success" ? 'rgba(0, 255, 136, 0.1)' : 'rgba(255, 0, 0, 0.1)',
+                    color: status === "success" ? '#00ff88' : '#ff4444',
+                    border: status === "success" ? '1px solid rgba(0, 255, 136, 0.2)' : '1px solid rgba(255, 0, 0, 0.2)'
+                  }}>
+                    {result}
+                  </div>
+                )}
               </form>
             </div>
           </div>
