@@ -3,16 +3,13 @@
 import Link from 'next/link';
 
 export default function Navbar() {
-  const navLinks = [
-    { name: "Home", href: "/" },
+  const domainLinks = [
     { name: "Intro", href: "/introduction" },
     { name: "Lit Review", href: "/literature-review" },
     { name: "Methodology", href: "/methodology" },
     { name: "Data", href: "/data-analysis" },
     { name: "Results", href: "/results" },
     { name: "Conclusion", href: "/conclusion" },
-    { name: "About", href: "/about-us" },
-    { name: "Contact", href: "/contacts" },
   ];
 
   return (
@@ -33,18 +30,28 @@ export default function Navbar() {
           CloudForensics
         </Link>
         
-        <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.85rem', fontWeight: '500' }}>
-          {navLinks.map((link) => (
-            <Link 
-              key={link.href} 
-              href={link.href} 
-              style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'var(--transition-smooth)' }}
-              onMouseOver={(e) => e.target.style.color = 'var(--accent-primary)'}
-              onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}
-            >
-              {link.name}
-            </Link>
-          ))}
+        <div style={{ display: 'flex', gap: '1rem', fontSize: '0.85rem', fontWeight: '500', alignItems: 'center' }}>
+          <Link href="/" className="nav-link" style={{ padding: '0.5rem' }}>Home</Link>
+          
+          <div className="dropdown" style={{ padding: '0.5rem 0' }}>
+            <span className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '0.5rem' }}>
+              Domain <span style={{ fontSize: '0.6rem' }}>▼</span>
+            </span>
+            <div className="dropdown-content">
+              {domainLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="dropdown-item">
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <Link href="/components" className="nav-link" style={{ padding: '0.5rem' }}>Components</Link>
+          <Link href="/milestones" className="nav-link" style={{ padding: '0.5rem' }}>Milestones</Link>
+          <Link href="/documents" className="nav-link" style={{ padding: '0.5rem' }}>Documents</Link>
+          <Link href="/presentations" className="nav-link" style={{ padding: '0.5rem' }}>Presentations</Link>
+          <Link href="/about-us" className="nav-link" style={{ padding: '0.5rem' }}>About Us</Link>
+          <Link href="/contacts" className="nav-link" style={{ padding: '0.5rem' }}>Contact</Link>
         </div>
       </div>
     </nav>

@@ -127,3 +127,55 @@ h1, h2, h3, h4, .font-outfit {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-primary);
 }
+
+/* --- Navigation & Dropdowns --- */
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: var(--accent-primary);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--bg-surface);
+  min-width: 180px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 0.5rem 0;
+  z-index: 1000;
+  margin-top: 0; /* Removed gap to prevent dropdown from disappearing */
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.dropdown-item {
+  color: var(--text-secondary);
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  display: block;
+  transition: var(--transition-smooth);
+  font-size: 0.85rem;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--accent-primary);
+}
