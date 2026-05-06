@@ -2,7 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 export const metadata = {
-  title: "Cloud Forensics Research Platform",
+  title: "Automated Incident Capture and Analysis in Cloud Forensics Using Log-Based Event Correlation",
   description: "Advanced behavior profiling, incident detection, and evidence preservation for cloud environments.",
 };
 

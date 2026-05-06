@@ -1,4 +1,4 @@
-# Research Report Draft : Advanced Cloud Forensics & Automated Threat Attribution Platform
+# Automated Incident Capture and Analysis in Cloud Forensics Using Log-Based Event Correlation
 
 **Date:** April 27, 2026  
 **Status:** Final Submission (Group Research Project)

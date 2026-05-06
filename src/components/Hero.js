@@ -9,8 +9,8 @@ export default function Hero() {
             <span className="font-outfit" style={{ color: 'var(--accent-primary)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.9rem' }}>
               Final Year Research Project
             </span>
-            <h1 className="text-gradient" style={{ fontSize: '4.5rem', lineHeight: '1.1', marginBottom: '1.5rem', marginTop: '1rem' }}>
-              Advanced Cloud <br /> Forensics Platform
+            <h1 className="text-gradient" style={{ fontSize: '3rem', lineHeight: '1.2', marginBottom: '1.5rem', marginTop: '1rem' }}>
+              Automated Incident Capture and Analysis in Cloud Forensics Using Log-Based Event Correlation
             </h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', marginBottom: '2.5rem', maxWidth: '500px' }}>
               Automating threat attribution and evidence preservation through ensemble machine learning and cryptographic chain-of-custody.
