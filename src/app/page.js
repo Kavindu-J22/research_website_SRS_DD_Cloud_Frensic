@@ -16,20 +16,12 @@ export default function Home() {
             <h2 style={{ fontSize: '3rem' }}>System Architecture</h2>
             <p style={{ color: 'var(--text-secondary)' }}>A multi-layered microservices orchestration</p>
           </div>
-          <div className="glass-card" style={{ padding: '4rem', textAlign: 'center' }}>
-             {/* Simple visual representation of architecture */}
-             <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
-                <div className="glass-card" style={{ width: '200px' }}>Frontend (Next.js)</div>
-                <div style={{ alignSelf: 'center', fontSize: '2rem' }}>↓</div>
-                <div className="glass-card" style={{ width: '200px' }}>Backend (Node.js)</div>
-                <div style={{ alignSelf: 'center', fontSize: '2rem' }}>↓</div>
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                  <div className="glass-card" style={{ width: '120px', fontSize: '0.8rem' }}>C1: Identity</div>
-                  <div className="glass-card" style={{ width: '120px', fontSize: '0.8rem' }}>C2: Incident</div>
-                  <div className="glass-card" style={{ width: '120px', fontSize: '0.8rem' }}>C3: Evidence</div>
-                  <div className="glass-card" style={{ width: '120px', fontSize: '0.8rem' }}>C4: Timeline</div>
-                </div>
-             </div>
+          <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', overflow: 'hidden' }}>
+             <img 
+               src="/images/architecture.png" 
+               alt="System Architecture Diagram" 
+               style={{ width: '100%', borderRadius: '12px', border: '1px solid var(--glass-border)' }} 
+             />
           </div>
         </div>
       </section>

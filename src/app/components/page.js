@@ -8,7 +8,12 @@ export default function Components() {
       description: "Behavioral attribution profiling using an ensemble of Machine Learning models (Isolation Forest, SVM, Autoencoders) to analyze multidimensional user behavior and establish baseline profiles.",
       icon: "👤",
       color: "#00f2ff",
-      features: ["Behavioral baselining", "Anomaly detection", "Multi-model ensemble approach"]
+      features: ["Behavioral baselining", "Anomaly detection", "Multi-model ensemble approach"],
+      developer: {
+        name: "T. R. Hettiarachchi",
+        image: "/images/team/T. R. Hettiarachchi.png",
+        role: "Lead Developer"
+      }
     },
     {
       id: "C2",
@@ -16,7 +21,12 @@ export default function Components() {
       description: "A real-time correlation engine that maps detected anomalies to the MITRE ATT&CK framework, providing tactical context and reducing alert fatigue.",
       icon: "🛡️",
       color: "#7000ff",
-      features: ["Real-time stream processing", "MITRE ATT&CK mapping", "Alert fatigue reduction"]
+      features: ["Real-time stream processing", "MITRE ATT&CK mapping", "Alert fatigue reduction"],
+      developer: {
+        name: "W. L.C.A.Fernando",
+        image: "/images/team/W. L.C.A.Fernando.png",
+        role: "Lead Developer"
+      }
     },
     {
       id: "C3",
@@ -24,7 +34,12 @@ export default function Components() {
       description: "Establishes a non-repudiable chain of custody using RSA-2048 signing and cryptographic hash chaining immediately upon incident detection.",
       icon: "🔗",
       color: "#ff00e5",
-      features: ["Cryptographic signing", "Hash chaining", "Immutable evidence ledger"]
+      features: ["Cryptographic signing", "Hash chaining", "Immutable evidence ledger"],
+      developer: {
+        name: "C. D. Aluthge",
+        image: "/images/team/C. D. Aluthge.png",
+        role: "Lead Developer"
+      }
     },
     {
       id: "C4",
@@ -32,7 +47,12 @@ export default function Components() {
       description: "Automates forensic narrative synthesis through unsupervised log clustering (DBSCAN) and TF-IDF to accelerate investigator response time.",
       icon: "⏳",
       color: "#00ff88",
-      features: ["Unsupervised clustering", "Narrative synthesis", "Rapid incident response"]
+      features: ["Unsupervised clustering", "Narrative synthesis", "Rapid incident response"],
+      developer: {
+        name: "W. K. S. De Silva",
+        image: "/images/team/W. K. S. De Silva.png",
+        role: "Lead Developer"
+      }
     }
   ];
 
@@ -109,6 +129,37 @@ export default function Components() {
                       {feature}
                     </span>
                   ))}
+                </div>
+
+                <div style={{ 
+                  marginTop: '2rem', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '1rem',
+                  justifyContent: index % 2 === 0 ? 'flex-start' : 'flex-end',
+                  padding: '1rem',
+                  background: 'rgba(255, 255, 255, 0.02)',
+                  borderRadius: '16px',
+                  border: '1px solid var(--glass-border)'
+                }}>
+                  <div style={{ textAlign: index % 2 === 0 ? 'left' : 'right' }}>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.2rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Developed By</p>
+                    <p style={{ fontSize: '0.95rem', fontWeight: '600' }}>{c.developer.name}</p>
+                  </div>
+                  <div style={{ 
+                    width: '45px', 
+                    height: '45px', 
+                    borderRadius: '50%', 
+                    overflow: 'hidden', 
+                    border: `2px solid ${c.color}`,
+                    boxShadow: `0 0 10px ${c.color}33`
+                  }}>
+                    <img 
+                      src={c.developer.image} 
+                      alt={c.developer.name} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

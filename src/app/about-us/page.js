@@ -8,6 +8,7 @@ export default function AboutUs() {
       email: "it22920836@my.sliit.lk",
       role: "Group Leader",
       component: "Identity attribution and behavior profiling development",
+      image: "/images/team/T. R. Hettiarachchi.png",
       icon: "👤"
     },
     {
@@ -16,6 +17,7 @@ export default function AboutUs() {
       email: "it22033550@my.sliit.lk",
       role: "Research Member",
       component: "Incident Detection and Correlation Development",
+      image: "/images/team/W. L.C.A.Fernando.png",
       icon: "🔍"
     },
     {
@@ -24,6 +26,7 @@ export default function AboutUs() {
       email: "it22581402@my.sliit.lk",
       role: "Research Member",
       component: "Evidence Preservation and Chain of Custody Automation",
+      image: "/images/team/C. D. Aluthge.png",
       icon: "🛡️"
     },
     {
@@ -32,6 +35,7 @@ export default function AboutUs() {
       email: "it22916808@my.sliit.lk",
       role: "Research Member",
       component: "Forensic Timeline Reconstruction and Visualization",
+      image: "/images/team/W. K. S. De Silva.png",
       icon: "📊"
     }
   ];
@@ -67,16 +71,28 @@ export default function AboutUs() {
                   animationDelay: `${index * 0.1}s` 
                 }}>
                   <div style={{ 
-                    fontSize: '3rem', 
-                    width: '70px', 
-                    height: '70px', 
+                    width: '100px', 
+                    height: '100px', 
                     background: 'rgba(0, 242, 255, 0.1)', 
-                    borderRadius: '16px',
+                    borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    overflow: 'hidden',
+                    border: '2px solid var(--accent-primary)',
+                    boxShadow: '0 0 20px rgba(0, 242, 255, 0.2)'
                   }}>
-                    {member.icon}
+                    {member.image ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+                      />
+                    ) : null}
+                    <span style={{ fontSize: '3rem', display: member.image ? 'none' : 'flex' }}>
+                      {member.icon}
+                    </span>
                   </div>
                   <div>
                     <h3 style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>{member.name}</h3>
