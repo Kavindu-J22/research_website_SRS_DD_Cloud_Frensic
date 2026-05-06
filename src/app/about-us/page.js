@@ -41,8 +41,18 @@ export default function AboutUs() {
   ];
 
   const supervisors = [
-    { name: "Dr. Harindra Fernando", role: "Supervisor", icon: "👨‍🏫" },
-    { name: "Mr. Indunil Daluwatte", role: "Co-Supervisor", icon: "👨‍🏫" }
+    { 
+      name: "Dr. Harindra Fernando", 
+      role: "Supervisor", 
+      icon: "👨‍🏫",
+      image: "/images/team/Supervisor.jpeg"
+    },
+    { 
+      name: "Mr. Indunil Daluwatte", 
+      role: "Co-Supervisor", 
+      icon: "👨‍🏫",
+      image: "/images/team/Co-Supervisor.jpeg"
+    }
   ];
 
   return (
@@ -120,20 +130,38 @@ export default function AboutUs() {
             <div style={{ 
               display: 'flex', 
               justifyContent: 'center', 
-              gap: '4rem', 
+              gap: '6rem', 
               flexWrap: 'wrap' 
             }}>
               {supervisors.map((sup, index) => (
-                <div key={index} style={{ textAlign: 'center' }}>
+                <div key={index} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <div style={{ 
-                    fontSize: '4rem', 
-                    marginBottom: '1.5rem',
-                    filter: 'drop-shadow(0 0 10px var(--accent-primary))'
+                    width: '140px', 
+                    height: '140px', 
+                    background: 'rgba(0, 242, 255, 0.1)', 
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'hidden',
+                    border: '2px solid var(--accent-primary)',
+                    boxShadow: '0 0 25px rgba(0, 242, 255, 0.3)',
+                    marginBottom: '1.5rem'
                   }}>
-                    {sup.icon}
+                    {sup.image ? (
+                      <img 
+                        src={sup.image} 
+                        alt={sup.name} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+                      />
+                    ) : null}
+                    <span style={{ fontSize: '4rem', display: sup.image ? 'none' : 'flex' }}>
+                      {sup.icon}
+                    </span>
                   </div>
                   <h3 style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>{sup.name}</h3>
-                  <p style={{ color: 'var(--text-secondary)' }}>{sup.role}</p>
+                  <p style={{ color: 'var(--accent-primary)', fontWeight: '600' }}>{sup.role}</p>
                 </div>
               ))}
             </div>
